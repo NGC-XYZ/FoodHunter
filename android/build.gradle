@@ -13,9 +13,9 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url 'https://mirrors.tuna.tsinghua.edu.cn/flutter/download.flutter.io' }
         google()
-        mavenCenter()
+        jcenter()
+        maven { url 'https://mirrors.tuna.tsinghua.edu.cn/flutter/download.flutter.io' }
     }
 }
 
