@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_hunter/demos/dio_page.dart';
+import 'package:food_hunter/demos/http_client_page.dart';
+import 'package:food_hunter/demos/http_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -72,6 +75,49 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(color: Colors.white, fontSize: 14),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.http),
+              title: Text('HttpClient'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return HttpClientPage();
+                }));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.http),
+              title: Text('Http'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return HttpPage();
+                }));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.http),
+              title: Text('Dio'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return DioPage();
+                }));
+              },
+            ),
+          ],
+        ),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
