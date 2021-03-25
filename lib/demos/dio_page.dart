@@ -22,8 +22,7 @@ class _DioState extends State<DioPage> {
       var data = response.data;
       result = data['origin'];
     } else {
-      result =
-      'Error getting IP address:\nHttp status ${response.statusCode}';
+      result = 'Error getting IP address:\nHttp status ${response.statusCode}';
     }
 
     // If the widget was removed from the tree while the message was in flight,

@@ -28,7 +28,7 @@ class _HttpClientState extends State<HttpClientPage> {
         result = data['origin'];
       } else {
         result =
-        'Error getting IP address:\nHttp status ${response.statusCode}';
+            'Error getting IP address:\nHttp status ${response.statusCode}';
       }
     } catch (exception) {
       result = 'Failed getting IP address';
