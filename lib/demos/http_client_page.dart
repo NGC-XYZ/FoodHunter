@@ -22,7 +22,7 @@ class _HttpClientState extends State<HttpClientPage> {
     try {
       var request = await httpClient.getUrl(Uri.parse(url));
       var response = await request.close();
-      if (response.statusCode == HttpStatus.OK) {
+      if (response.statusCode == HttpStatus.ok) {
         var json = await response.transform(utf8.decoder).join();
         var data = jsonDecode(json);
         result = data['origin'];
@@ -56,7 +56,7 @@ class _HttpClientState extends State<HttpClientPage> {
             new Text('Your current IP address is:'),
             new Text('$_ipAddress.'),
             spacer,
-            new RaisedButton(
+            new ElevatedButton(
               onPressed: _getIPAddress,
               child: new Text('Get IP address'),
             ),

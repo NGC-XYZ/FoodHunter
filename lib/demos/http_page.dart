@@ -1,8 +1,9 @@
 import 'dart:convert' as convert;
 import 'dart:io';
-import 'package:http/http.dart' as http;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class HttpPage extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _HttpState extends State<HttpPage> {
 
     String result;
     var response = await client.get(url);
-    if (response.statusCode == HttpStatus.OK) {
+    if (response.statusCode == HttpStatus.ok) {
       var data = convert.jsonDecode(response.body);
       result = data['origin'];
     } else {
@@ -49,7 +50,7 @@ class _HttpState extends State<HttpPage> {
             new Text('Your current IP address is:'),
             new Text('$_ipAddress.'),
             spacer,
-            new RaisedButton(
+            new ElevatedButton(
               onPressed: _getIPAddress,
               child: new Text('Get IP address'),
             ),

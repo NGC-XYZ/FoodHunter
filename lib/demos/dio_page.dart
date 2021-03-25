@@ -1,5 +1,6 @@
-import 'package:dio/dio.dart';
 import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _DioState extends State<DioPage> {
 
     String result;
     var response = await dio.get('https://httpbin.org/ip');
-    if (response.statusCode == HttpStatus.OK) {
+    if (response.statusCode == HttpStatus.ok) {
       var data = response.data;
       result = data['origin'];
     } else {
@@ -47,7 +48,7 @@ class _DioState extends State<DioPage> {
             new Text('Your current IP address is:'),
             new Text('$_ipAddress.'),
             spacer,
-            new RaisedButton(
+            new ElevatedButton(
               onPressed: _getIPAddress,
               child: new Text('Get IP address'),
             ),
