@@ -2,27 +2,33 @@ name: Build
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
-    branches: [master]
+    branches: [ master ]
 
 jobs:
   build:
     runs-on: macos-latest
     strategy:
+      fail-fast: true
       matrix:
-        sdk: [stable, 2.12.1]
+        flutter-version: [ 2.0.3 ]
+        target: [ apk, 'ios --release --no-codesign' ]
     steps:
       - uses: actions/checkout@v2
-      - uses: dart-lang/setup-dart@v1
+      - uses: actions/setup-java@v1
         with:
-          sdk: ${{ matrix.sdk }}
-
+          java-version: '11.x'
+      - uses: subosito/flutter-action@v1
+        with:
+          sdk: ${{ matrix.flutter-version }}
       - name: Install dependencies
-        run: dart pub get
+        run: flutter pub get
       - name: Check formatting
-        run: dart format --output=none --set-exit-if-changed .
+        run: flutter format --output=none --set-exit-if-changed .
       - name: Analyze code
-        run: dart analyze
+        run: flutter analyze
       - name: Run tests
-        run: dart test
+        run: flutter test
+      - name: build android & ios
+        run: flutter build ${{ matrix.target }}
