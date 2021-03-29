@@ -35,6 +35,7 @@ class _JsonSerializationState extends State<JsonSerializationPage> {
     print('food location stress, ${food.location.street}!');
     print('food location city, ${food.location.city}!');
     print('food type, ${food.type}!');
+    print('food open date, ${food.openDate}!');
   }
 
   @override

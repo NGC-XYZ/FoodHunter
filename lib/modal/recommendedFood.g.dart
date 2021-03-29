@@ -11,6 +11,7 @@ RecommendedFood _$RecommendedFoodFromJson(Map<String, dynamic> json) {
     json['name'] as String,
     RecommendedFoodLocation.fromJson(json['location'] as Map<String, dynamic>),
     json['type'] as String,
+    RecommendedFood._dateTimeFromEpochUs(json['openDate'] as int),
   );
 }
 
@@ -19,4 +20,5 @@ Map<String, dynamic> _$RecommendedFoodToJson(RecommendedFood instance) =>
       'name': instance.name,
       'type': instance.type,
       'location': instance.location.toJson(),
+      'openDate': RecommendedFood._dateTimeToEpochUs(instance.openDate),
     };
