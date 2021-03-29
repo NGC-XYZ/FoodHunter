@@ -32,7 +32,8 @@ class _JsonSerializationState extends State<JsonSerializationPage> {
     var food = RecommendedFood.fromJson(foodMap);
 
     print('food name, ${food.name}!');
-    print('food location, ${food.location}!');
+    print('food location stress, ${food.location.street}!');
+    print('food location city, ${food.location.city}!');
     print('food type, ${food.type}!');
   }
 

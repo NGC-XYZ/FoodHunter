@@ -9,7 +9,7 @@ part of 'recommendedFood.dart';
 RecommendedFood _$RecommendedFoodFromJson(Map<String, dynamic> json) {
   return RecommendedFood(
     json['name'] as String,
-    json['location'] as String,
+    RecommendedFoodLocation.fromJson(json['location'] as Map<String, dynamic>),
     json['type'] as String,
   );
 }
@@ -17,6 +17,6 @@ RecommendedFood _$RecommendedFoodFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$RecommendedFoodToJson(RecommendedFood instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'location': instance.location,
       'type': instance.type,
+      'location': instance.location.toJson(),
     };
