@@ -15,17 +15,18 @@ class JsonSerializationPage extends StatefulWidget {
 }
 
 class _JsonSerializationState extends State<JsonSerializationPage> {
-  var _user;
 
   _covertJson() async{
     String jsonString = await rootBundle.loadString("assets/user.json");
-    _user = jsonDecode(jsonString);
+    Map<String, dynamic> userMap = jsonDecode(jsonString);
 
-    print('$_user');
-    print('user name, ${_user['userName']}!');
-    print('user email, ${_user['email']}!');
-    print('user gender, ${_user['gender']}!');
-    print('user age, ${_user['age']}!');
+    var user = User.fromJson(userMap);
+
+    print('$user');
+    print('user name, ${user.name}!');
+    print('user email, ${user.email}!');
+    print('user gender, ${user.gender}!');
+    print('user age, ${user.age}!');
   }
 
   @override
@@ -38,9 +39,8 @@ class _JsonSerializationState extends State<JsonSerializationPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             new Text('After decode user info:'),
-            new Text('$_user'),
             spacer,
-            new RaisedButton(
+            new ElevatedButton(
               onPressed: _covertJson,
               child: new Text('decode user info'),
             ),
