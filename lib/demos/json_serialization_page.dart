@@ -1,10 +1,10 @@
-import 'dart:async' show Future;
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/services.dart';
+import 'package:food_hunter/modal/recommendedFood.dart';
 import 'package:food_hunter/modal/user.dart';
 
 class JsonSerializationPage extends StatefulWidget {
@@ -16,10 +16,9 @@ class JsonSerializationPage extends StatefulWidget {
 
 class _JsonSerializationState extends State<JsonSerializationPage> {
 
-  _covertJson() async{
+  _covertJson() async {
     String jsonString = await rootBundle.loadString("assets/user.json");
     Map<String, dynamic> userMap = jsonDecode(jsonString);
-
     var user = User.fromJson(userMap);
 
     print('$user');
@@ -27,6 +26,14 @@ class _JsonSerializationState extends State<JsonSerializationPage> {
     print('user email, ${user.email}!');
     print('user gender, ${user.gender}!');
     print('user age, ${user.age}!');
+
+    String foodJsonString = await rootBundle.loadString("assets/recommendedFood.json");
+    Map<String, dynamic> foodMap = jsonDecode(foodJsonString);
+    var food = RecommendedFood.fromJson(foodMap);
+
+    print('food name, ${food.name}!');
+    print('food location, ${food.location}!');
+    print('food type, ${food.type}!');
   }
 
   @override
