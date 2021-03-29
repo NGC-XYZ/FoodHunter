@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_hunter/demos/dio_page.dart';
 import 'package:food_hunter/demos/http_client_page.dart';
 import 'package:food_hunter/demos/http_page.dart';
+import 'package:food_hunter/demos/json_serialization_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -113,6 +114,15 @@ class _MyHomePageState extends State<MyHomePage> {
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return DioPage();
+                }));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.two_k),
+              title: Text('Json'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return JsonSerializationPage();
                 }));
               },
             ),
