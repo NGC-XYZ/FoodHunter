@@ -15,7 +15,6 @@ class JsonSerializationPage extends StatefulWidget {
 }
 
 class _JsonSerializationState extends State<JsonSerializationPage> {
-
   _covertJson() async {
     String jsonString = await rootBundle.loadString("assets/user.json");
     Map<String, dynamic> userMap = jsonDecode(jsonString);
@@ -27,7 +26,8 @@ class _JsonSerializationState extends State<JsonSerializationPage> {
     print('user gender, ${user.gender}!');
     print('user age, ${user.age}!');
 
-    String foodJsonString = await rootBundle.loadString("assets/recommendedFood.json");
+    String foodJsonString =
+        await rootBundle.loadString("assets/recommendedFood.json");
     Map<String, dynamic> foodMap = jsonDecode(foodJsonString);
     var food = RecommendedFood.fromJson(foodMap);
 

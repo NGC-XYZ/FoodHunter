@@ -12,8 +12,7 @@ class User {
         gender = json['gender'],
         email = json['email'];
 
-  Map<String, dynamic> toJson() =>
-      {
+  Map<String, dynamic> toJson() => {
         'name': name,
         'email': email,
         'age': age,

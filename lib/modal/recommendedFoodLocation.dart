@@ -3,7 +3,6 @@ import 'package:json_annotation/json_annotation.dart';
 part 'recommendedFoodLocation.g.dart';
 
 @JsonSerializable()
-
 class RecommendedFoodLocation {
   RecommendedFoodLocation(this.street, this.city);
 

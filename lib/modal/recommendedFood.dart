@@ -4,7 +4,6 @@ import 'package:json_annotation/json_annotation.dart';
 part 'recommendedFood.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-
 class RecommendedFood {
   RecommendedFood(this.name, this.location, this.type, this.openDate);
 
@@ -14,7 +13,8 @@ class RecommendedFood {
   @JsonKey(fromJson: _dateTimeFromEpochUs, toJson: _dateTimeToEpochUs)
   final DateTime openDate;
 
-  factory RecommendedFood.fromJson(Map<String, dynamic> json) => _$RecommendedFoodFromJson(json);
+  factory RecommendedFood.fromJson(Map<String, dynamic> json) =>
+      _$RecommendedFoodFromJson(json);
 
   Map<String, dynamic> toJson() => _$RecommendedFoodToJson(this);
 
