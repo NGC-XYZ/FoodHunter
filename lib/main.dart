@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:provider/provider.dart';
 import 'package:food_hunter/demos/dio_page.dart';
 import 'package:food_hunter/demos/http_client_page.dart';
 import 'package:food_hunter/demos/http_page.dart';
 import 'package:food_hunter/demos/json_serialization_page.dart';
+import 'package:food_hunter/demos/counter_use_provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      // Initialize the model in the builder. That way, Provider
+      // can own Counter's lifecycle, making sure to call `dispose`
+      // when not needed anymore.
+      create: (context) => Counter(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -123,6 +134,15 @@ class _MyHomePageState extends State<MyHomePage> {
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return JsonSerializationPage();
+                }));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.two_k),
+              title: Text('Counter use Provider'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return CounterUseProvider();
                 }));
               },
             ),

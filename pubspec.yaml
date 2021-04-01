@@ -30,6 +30,7 @@ dependencies:
   http: ^0.13.0
   dio: ^4.0.0-prev3
   json_annotation: ^4.0.0
+  provider: ^4.3.3
 
 dev_dependencies:
   flutter_test:
