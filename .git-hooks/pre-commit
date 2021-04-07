@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+printf "\e[33;1m%s\e[0m\n" 'Running the Flutter formatter'
+flutter format . --set-exit-if-changed
+if [ $? -ne 0 ]; then
+  printf "\e[31;1m%s\e[0m\n" 'Check format failed'
+  exit 1
+fi
+printf "\e[33;1m%s\e[0m\n" 'Finished running the Flutter formatter'

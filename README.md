@@ -24,3 +24,5 @@ samples, guidance on mobile development, and a full API reference.
   `flutter pub run build_runner watch`
 
 
+## Enable git hooks
+run `.git-hooks/install-git-hooks.sh`
