@@ -13,7 +13,7 @@ jobs:
       fail-fast: true
       matrix:
         flutter-version: [ 2.0.3 ]
-        target: [ apk, 'ios --release --no-codesign' ]
+        target: [ 'apk --release', 'ios --release --no-codesign' ]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
